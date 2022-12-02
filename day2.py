@@ -20,7 +20,7 @@ LOSE = 0
 
 def play(guide, rules):
     result = 0
-    for round in sguide:
+    for round in guide:
         round_rule = rules[round[1]]
         result += round_rule['value'] + round_rule['result'][round[0]]
     return result
