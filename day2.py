@@ -39,11 +39,11 @@ rules_part1 = {
             'Y': { 'value': PAPER, 'result': { ROCK_OTHER: WIN, PAPER_OTHER: DRAW, SCISSORS_OTHER: LOSE } },
             'Z': { 'value': SCISSORS, 'result': { PAPER_OTHER: WIN, SCISSORS_OTHER: DRAW, ROCK_OTHER: LOSE } }
         }
-print("Part 1: ", play(sguide, rules_part1))
+print("Part 1:", play(sguide, rules_part1))
 
 rules_part2 = {
         'X': { 'value': LOSE, 'result': { ROCK_OTHER: SCISSORS, PAPER_OTHER: ROCK, SCISSORS_OTHER: PAPER } },
         'Y': { 'value': DRAW, 'result': { ROCK_OTHER: ROCK, PAPER_OTHER: PAPER, SCISSORS_OTHER: SCISSORS } },
         'Z': { 'value': WIN, 'result': { ROCK_OTHER: PAPER, PAPER_OTHER: SCISSORS, SCISSORS_OTHER: ROCK } },
         }
-print("Part 2: ", play(sguide, rules_part2))
+print("Part 2:", play(sguide, rules_part2))

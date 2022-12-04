@@ -32,11 +32,11 @@ for p in cleaningpairs:
     if iscontainedinother(p[0], p[1]):
         containedpairs += 1
 
-print("Part 1: ", containedpairs)
+print("Part 1:", containedpairs)
 
 overlappingpairs = 0
 for p in cleaningpairs:
     if is1startingin2(p[0], p[1]) or is1startingin2(p[1], p[0]):
         overlappingpairs += 1
 
-print("Part 2: ", overlappingpairs)
+print("Part 2:", overlappingpairs)

@@ -34,8 +34,8 @@ with open(INPUT_FILE) as f:
 elf_calories_list = [ list(map(int, s.splitlines())) for s in rawdata.split('\n\n') ]
 
 
-print("Part 1: ", max_calories_carried(elf_calories_list))
+print("Part 1:", max_calories_carried(elf_calories_list))
 
-print("Part 2: ", sum(sorted_calories_carried(elf_calories_list)[-3:]))
+print("Part 2:", sum(sorted_calories_carried(elf_calories_list)[-3:]))
 
 

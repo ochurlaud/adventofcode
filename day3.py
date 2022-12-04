@@ -34,7 +34,7 @@ for b in backpacks:
             current_duplicate_items.append(item)
     duplicate_items += current_duplicate_items
 ps = [priority(x) for x in duplicate_items]
-print("Part 1: ", sum(ps))
+print("Part 1:", sum(ps))
 
 duplicate_items = []
 for k in range(len(backpacks)//3):
@@ -45,4 +45,4 @@ for k in range(len(backpacks)//3):
     duplicate_items += current_duplicate_items
 
 ps = [priority(x) for x in duplicate_items]
-print("Part2 : ", sum(ps))
+print("Part 2:", sum(ps))
