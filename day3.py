@@ -1,6 +1,15 @@
 #!/usr/bin/python3
 
-INPUT_FILE = 'inputs/day3.txt'
+print("## AdventOfCode 2022: day3")
+
+INPUT_FILE = "inputs/day3.txt"
+
+EXAMPLE = """vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw"""
 
 def priority(c):
     if c.isupper():
@@ -9,8 +18,11 @@ def priority(c):
         return ord(c) - ord('a') + 1  # a = 1, b = 2,...
 
 with open(INPUT_FILE) as f:
-    backpacks = f.read().splitlines()
+    rawdata = f.read()
 
+#rawdata = EXAMPLE
+
+backpacks = rawdata.splitlines()
 duplicate_items = []
 for b in backpacks:
     bsize = len(b)
@@ -22,7 +34,7 @@ for b in backpacks:
             current_duplicate_items.append(item)
     duplicate_items += current_duplicate_items
 ps = [priority(x) for x in duplicate_items]
-print("part 1:", sum(ps))
+print("Part 1: ", sum(ps))
 
 duplicate_items = []
 for k in range(len(backpacks)//3):
@@ -33,4 +45,4 @@ for k in range(len(backpacks)//3):
     duplicate_items += current_duplicate_items
 
 ps = [priority(x) for x in duplicate_items]
-print("part2:", sum(ps))
+print("Part2 : ", sum(ps))
