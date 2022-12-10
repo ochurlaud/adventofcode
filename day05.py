@@ -3,9 +3,9 @@
 import numpy as np
 import copy
 
-print("## AdventOfCode 2022: day5")
+print("## AdventOfCode 2022: day05")
 
-INPUT_FILE = "inputs/day5.txt"
+INPUT_FILE = "inputs/day05.txt"
 
 EXAMPLE = """    [D]    
 [N] [C]    

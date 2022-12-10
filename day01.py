@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-print("## AdventOfCode 2022: day1")
+print("## AdventOfCode 2022: day01")
 
-INPUT_FILE = "inputs/day1.txt"
+INPUT_FILE = "inputs/day01.txt"
 
 EXAMPLE = """1000
 2000
