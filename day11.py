@@ -42,11 +42,8 @@ def solve_plus(old, v):
         a = old[d][0]
         r = old[d][1]
         r = r + v
-        a2 = r // d
-        r2 = r % d
-        if a2 != 0:
-            a += a2
-            r = r2
+        a += r // d
+        r = r % d
         old[d] = (a,r) 
     return old
 
@@ -61,11 +58,8 @@ def solve_times(old, v):
         else:
             a = a*v
         r = r*v
-        a2 = r // d
-        r2 = r % d
-        if a2 != 0:
-            a += a2
-            r = r2
+        a += r // d
+        r = r % d
         old[d] = (a,r) 
     return old
 
@@ -79,11 +73,8 @@ def solve_square(old):
         else:
             a = a*a*d + 2*a*r
         r = r*r
-        a2 = r // d
-        r2 = r % d
-        if a2 != 0:
-            a += a2
-            r = r2
+        a += r // d
+        r = r % d
         old[d] = (a,r) 
     return old
 
@@ -188,8 +179,8 @@ optimize = True
 monkeys,divisors = init_monkeys(monkey_data, operations)
 active_monkeys = [0 for m in monkeys]
 for r in range(10000):
-    print("\rRound", r, end="")
+#    print("\rRound", r, end="")
     play_round(monkeys, active_monkeys, 1, divisors)
-print()
+#print()
 print("Part 2:", prod(sorted(active_monkeys)[-2:]))
 
