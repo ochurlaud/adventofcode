@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys
+
 print("## AdventOfCode 2022: day04")
 
 INPUT_FILE = "inputs/day04.txt"
@@ -23,7 +25,8 @@ def is1startingin2(p1, p2):
 with open(INPUT_FILE) as f:
     rawdata = f.read()
 
-#rawdata = EXAMPLE
+if len(sys.argv) > 1 and sys.argv[1] == "ex":
+    rawdata = EXAMPLE
 
 cleaningpairs = [ x.split(',') for x in rawdata.splitlines() ]
 cleaningpairs = [ [list(map(int, assignement.split('-'))) for assignement in pair] for pair in cleaningpairs ]

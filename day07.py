@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys
+
 print("## AdventOfCode 2022: day07")
 
 INPUT_FILE = "inputs/day07.txt"
@@ -31,7 +33,8 @@ $ ls
 with open(INPUT_FILE) as f:
     rawdata = f.read()
 
-##rawdata = EXAMPLE
+if len(sys.argv) > 1 and sys.argv[1] == "ex":
+    rawdata = EXAMPLE
 
 def path2dtree(d, path):
     if path in ["", "/"]:

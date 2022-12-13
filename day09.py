@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys
+
 print("## AdventOfCode 2022: day09")
 
 INPUT_FILE = "inputs/day09.txt"
@@ -16,7 +18,8 @@ R 2"""
 with open(INPUT_FILE) as f:
     rawdata = f.read()
 
-#rawdata = EXAMPLE
+if len(sys.argv) > 1 and sys.argv[1] == "ex":
+    rawdata = EXAMPLE
 
 data = [(x.split(' ')[0], int(x.split(' ')[1])) for x in rawdata.splitlines()]
 

@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys
+
 print("## AdventOfCode 2022: day01")
 
 INPUT_FILE = "inputs/day01.txt"
@@ -28,7 +30,9 @@ def sorted_calories_carried(calories_list):
 with open(INPUT_FILE) as f:
     rawdata = f.read()
 
-#rawdata = EXAMPLE
+
+if len(sys.argv) > 1 and sys.argv[1] == "ex":
+    rawdata = EXAMPLE
 
 # cut on double newlines and make sublist of ints of each line.
 elf_calories_list = [ list(map(int, s.splitlines())) for s in rawdata.split('\n\n') ]

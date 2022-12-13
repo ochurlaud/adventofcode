@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys
+
 print("## AdventOfCode 2022: day11")
 
 INPUT_FILE = "inputs/day11.txt"
@@ -90,8 +92,7 @@ operations = [
     ]
 
        
-example = False
-if example:
+if len(sys.argv) > 1 and sys.argv[1] == "ex":
     rawdata = EXAMPLE
     operations = [
             lambda old: solve_times(old, 19),

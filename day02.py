@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys 
+
 print("## AdventOfCode 2022: day02")
 
 INPUT_FILE = "inputs/day02.txt"
@@ -30,7 +32,8 @@ def play(guide, rules):
 with open(INPUT_FILE) as f: 
     rawdata = f.read()
 
-#rawdata = EXAMPLE
+if len(sys.argv) > 1 and sys.argv[1] == "ex":
+    rawdata = EXAMPLE
 
 sguide = [ l.split(' ') for l in rawdata.splitlines() ]
 

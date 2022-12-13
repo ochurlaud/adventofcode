@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 import numpy as np
 import copy
 
@@ -24,7 +25,8 @@ ROW_DST = 2
 with open(INPUT_FILE) as f:
     rawdata = f.read()
 
-#rawdata = EXAMPLE
+if len(sys.argv) > 1 and sys.argv[1] == "ex":
+    rawdata = EXAMPLE
 
 stacks_raw, orders_raw = map(str.splitlines, rawdata.split('\n\n'))
 

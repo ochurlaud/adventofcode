@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys
+
 print("## AdventOfCode 2022: day03")
 
 INPUT_FILE = "inputs/day03.txt"
@@ -20,7 +22,8 @@ def priority(c):
 with open(INPUT_FILE) as f:
     rawdata = f.read()
 
-#rawdata = EXAMPLE
+if len(sys.argv) > 1 and sys.argv[1] == "ex":
+    rawdata = EXAMPLE
 
 backpacks = rawdata.splitlines()
 duplicate_items = []
