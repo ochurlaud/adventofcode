@@ -37,7 +37,7 @@ Monkey 3:
 with open(INPUT_FILE) as f:
     rawdata = f.read()
 
-    
+
 def solve_plus(old, v):
     #old = a*d+r
     for d in old:
@@ -46,7 +46,7 @@ def solve_plus(old, v):
         r = r + v
         a += r // d
         r = r % d
-        old[d] = (a,r) 
+        old[d] = (a,r)
     return old
 
 def solve_times(old, v):
@@ -62,7 +62,7 @@ def solve_times(old, v):
         r = r*v
         a += r // d
         r = r % d
-        old[d] = (a,r) 
+        old[d] = (a,r)
     return old
 
 def solve_square(old):
@@ -77,38 +77,35 @@ def solve_square(old):
         r = r*r
         a += r // d
         r = r % d
-        old[d] = (a,r) 
+        old[d] = (a,r)
     return old
 
-operations = [
-        lambda old: solve_times(old, 11),
-        lambda old: solve_plus(old, 1),
-        lambda old: solve_square(old),
-        lambda old: solve_plus(old,2),
-        lambda old: solve_plus(old,6),
-        lambda old: solve_plus(old, 7),
-        lambda old: solve_times(old,7),
-        lambda old: solve_plus(old,8)
-    ]
+def monkeyops(sign, value):
+    if sign == '+':
+        return lambda old: solve_plus(old, int(value))
+    elif sign == "*":
+        if value == "old":
+            return lambda old: solve_square(old)
+        else:
+            return lambda old: solve_times(old, int(value))
+    else:
+        raise RuntimeError("NEVER HAPPENS")
 
-       
+
 if len(sys.argv) > 1 and sys.argv[1] == "ex":
     rawdata = EXAMPLE
-    operations = [
-            lambda old: solve_times(old, 19),
-            lambda old: solve_plus(old, 6),
-            lambda old: solve_square(old),
-            lambda old: solve_plus(old,3),
-        ] 
 
 monkey_data = rawdata.split('\n\n')
 
-def init_monkeys(monkey_data, operations):
+def init_monkeys(monkey_data):
     monkeys = []
     for i, one_monkey_raw in enumerate(monkey_data):
         one_monkey = one_monkey_raw.splitlines()
         items = list(map(int, one_monkey[1].split(': ')[-1].split(', ')))
-        operation = operations[i]
+
+        opswords = one_monkey[2].split()
+
+        operation = monkeyops(opswords[-2], opswords[-1])
         test_divisible_by = int(one_monkey[3].split(' ')[-1])
         result = {
                     True: int(one_monkey[4].split(' ')[-1]),
@@ -138,7 +135,7 @@ def compute_item(item, divisors):
         for d in divisors:
             item_reduced[d] = (item // d, item % d)
         return item_reduced
-    
+
 def is_divisible_by(item, d):
     return item[d][1] == 0
 
@@ -146,7 +143,7 @@ def item_value(item):
     d = list(item.keys())[0]
     return d*item[d][0] + item[d][1]
 
-monkeys,divisors = init_monkeys(monkey_data, operations)
+monkeys,divisors = init_monkeys(monkey_data)
 optimize = False
 def play_round(monkeys, active_monkeys, worry_division, divisors):
     for monkey_id in range(len(monkeys)):
@@ -177,7 +174,7 @@ print("Part 1:", prod(sorted(active_monkeys)[-2:]))
 
 
 optimize = True
-monkeys,divisors = init_monkeys(monkey_data, operations)
+monkeys,divisors = init_monkeys(monkey_data)
 active_monkeys = [0 for m in monkeys]
 for r in range(10000):
 #    print("\rRound", r, end="")
